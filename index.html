@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RedFlame Anime</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #1a0000;
+      background-image: url('https://wallpaperaccess.com/full/1127436.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: white;
+    }
+    header {
+      background: rgba(255, 0, 0, 0.85);
+      padding: 1rem;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 1rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .search-container {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .search-container input {
+      padding: 0.7rem;
+      width: 300px;
+      border: none;
+      border-radius: 5px;
+    }
+    .anime-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    .anime-card {
+      background: #2a0000;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 10px red;
+      transition: transform 0.3s;
+    }
+    .anime-card:hover {
+      transform: scale(1.05);
+    }
+    .anime-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    .anime-info {
+      padding: 1rem;
+    }
+    .anime-info h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+    .anime-info p {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+    .download-btn {
+      background-color: red;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(255, 0, 0, 0.9);
+      margin-top: 2rem;
+    }
+    .categories, .genre-filters, .popups, .ads-simulation {
+      padding: 2rem;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+    .section-title {
+      font-size: 1.8rem;
+      color: red;
+      margin-bottom: 1rem;
+    }
+    .category-list, .genre-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .category-item, .genre-item {
+      background: #330000;
+      padding: 0.7rem 1rem;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .popup-banner {
+      background: darkred;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-weight: bold;
+    }
+    .ad-space {
+      height: 90px;
+      background: #4d0000;
+      margin: 1rem 0;
+      text-align: center;
+      line-height: 90px;
+      font-size: 1rem;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>RedFlame Anime</header>  <nav>
+    <a href="#">Home</a>
+    <a href="#">New Episodes</a>
+    <a href="#">Movies</a>
+    <a href="#">Top Anime</a>
+    <a href="#">Genres</a>
+  </nav>  <div class="search-container">
+    <input type="text" placeholder="Search Anime...">
+  </div>  <div class="popup-banner">🔥 Get the latest episodes faster than anywhere else! 🔥</div>  <div class="ad-space">Ad Banner Space (Simulated)</div>  <section class="categories">
+    <div class="section-title">Categories</div>
+    <div class="category-list">
+      <div class="category-item">Action</div>
+      <div class="category-item">Romance</div>
+      <div class="category-item">Fantasy</div>
+      <div class="category-item">Comedy</div>
+      <div class="category-item">Sci-fi</div>
+      <div class="category-item">Isekai</div>
+    </div>
+  </section>  <section class="genre-filters">
+    <div class="section-title">Genres</div>
+    <div class="genre-list">
+      <div class="genre-item">Shonen</div>
+      <div class="genre-item">Seinen</div>
+      <div class="genre-item">Shojo</div>
+      <div class="genre-item">Slice of Life</div>
+      <div class="genre-item">Horror</div>
+      <div class="genre-item">Mystery</div>
+    </div>
+  </section>  <section class="anime-section">
+    <div class="anime-card">
+      <img src="https://cdn.myanimelist.net/images/anime/1286/99889.jpg" alt="Demon Slayer">
+      <div class="anime-info">
+        <h3>Demon Slayer: Infinity Castle</h3>
+        <p>Latest Season | 2025</p>
+        <button class="download-btn">Watch Now</button>
+      </div>
+    </div>
+    <div class="anime-card">
+      <img src="https://cdn.myanimelist.net/images/anime/7/76014.jpg" alt="Attack on Titan">
+      <div class="anime-info">
+        <h3>Attack on Titan Final Season</h3>
+        <p>New Episodes Weekly</p>
+        <button class="download-btn">Watch Now</button>
+      </div>
+    </div>
+    <div class="anime-card">
+      <img src="https://cdn.myanimelist.net/images/anime/1171/109222.jpg" alt="Jujutsu Kaisen">
+      <div class="anime-info">
+        <h3>Jujutsu Kaisen Season 2</h3>
+        <p>Hot Right Now</p>
+        <button class="download-btn">Watch Now</button>
+      </div>
+    </div>
+  </section>  <div class="ad-space">Another Ad Space (Simulated)</div>  <div class="footer">© 2025 RedFlame Anime. All rights reserved. | Designed for anime fans by anime fans.</div>
+</body>
+</html>
