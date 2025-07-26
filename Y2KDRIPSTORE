@@ -1,0 +1,853 @@
+<!-- Tailwind-based layout example -->
+<body class="bg-white text-gray-800">
+  <!-- Navigation Bar -->
+  <nav class="bg-black text-white px-6 py-4 shadow-md">
+    <h1 class="text-2xl font-bold tracking-wide">Y2KDripstore</h1>
+  </nav>
+
+  <!-- Product Grid -->
+  <section class="bg-white py-8 px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Example Product Card -->
+    <div class="bg-[#f9f5f2] rounded-xl shadow hover:shadow-lg p-4 transition">
+      <img src="your-image.jpg" class="rounded-lg" />
+      <h2 class="text-xl font-semibold mt-2">Sneakers</h2>
+      <p class="text-gray-600">R1500</p>
+      <button class="mt-2 bg-black text-white px-4 py-2 rounded hover:bg-gray-900">
+        Add to Cart
+      </button>
+    </div>
+  </section>
+</body>
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Y2KDripstore - Payment Upload</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 20px; }
+    .container { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h2 { text-align: center; color: #222; }
+    label { display: block; margin-top: 10px; font-weight: bold; }
+    input, select, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; }
+    button { margin-top: 20px; width: 100%; background: #111; color: #fff; border: none; padding: 12px; font-size: 16px; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #333; }
+    .success { background: #d4edda; padding: 10px; border-radius: 5px; margin-top: 15px; color: #155724; display: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Submit Your Payment Proof</h2>
+    <form id="paymentForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required /><label for="phone">Phone Number</label>
+  <input type="tel" id="phone" name="phone" required />
+
+  <label for="product">Product Bought</label>
+  <input type="text" id="product" name="product" required />
+
+  <label for="size">Size (XS - XXL / 1 - 12 etc)</label>
+  <input type="text" id="size" name="size" required />
+
+  <label for="method">Payment Method</label>
+  <select id="method" name="method">
+    <option value="CashSend">CashSend</option>
+    <option value="eWallet">eWallet</option>
+    <option value="MoneyMarket">MoneyMarket</option>
+  </select>
+
+  <label for="amount">Amount Paid (R)</label>
+  <input type="number" id="amount" name="amount" required />
+
+  <label for="ref">Payment Code / Password</label>
+  <input type="text" id="ref" name="ref" required />
+
+  <label for="proof">Upload Payment Screenshot</label>
+  <input type="file" id="proof" name="proof" accept="image/*" required />
+
+  <button type="submit">Submit Order</button>
+</form>
+<div class="success" id="successMsg">Thank you! Your payment proof has been submitted successfully.</div>
+
+  </div>  <script>
+    document.getElementById("paymentForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      document.getElementById("successMsg").style.display = "block";
+      // Here, connect to backend or Google Sheets to save submission
+    });
+  </script></body>
+</html>
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Y2K Drip Store</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+    }
+    body {
+      background-color: #f3f3f3;
+      color: #333;
+    }
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #111;
+      padding: 10px 20px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 16px;
+      background: #ff0055;
+      border-radius: 4px;
+      margin: 0 5px;
+    }
+    .search-bar {
+      flex-grow: 1;
+      margin-left: 20px;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 8px;
+      border-radius: 4px;
+      border: none;
+    }
+    .auth-buttons {
+      display: flex;
+      gap: 10px;
+    }
+    .auth-buttons button {
+      padding: 6px 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .hero {
+      background-image: url('https://wallpaperaccess.com/full/1127436.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2em;
+      text-shadow: 2px 2px #000;
+      text-align: center;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+    .product {
+      background: white;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .product img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .product h3 {
+      margin: 10px 0;
+    }
+    .product p {
+      color: #777;
+    }
+    .sizes {
+      margin: 10px 0;
+    }
+    .sizes select {
+      padding: 5px;
+      border-radius: 4px;
+    }
+    .btn {
+      background: #ff0055;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .footer {
+      background: #000;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    @media screen and (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .search-bar {
+        width: 100%;
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Y2K Drip Store</h1>
+    <p>Your #1 Online Streetwear Shop</p>
+  </header>
+  <nav>
+    <div>
+      <a href="#">Home</a>
+      <a href="#products">Shop</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search products...">
+    </div>
+    <div class="auth-buttons">
+      <button>Login</button>
+      <button>Sign Up</button>
+    </div>
+  </nav>
+  <div class="hero">
+    <div>🔥 New Drops Weekly 🔥<br>Lay-buy iPhones R600/month • Laptops R500/month</div>
+  </div>
+  <section class="products" id="products">
+    <div class="product">
+      <img src="https://via.placeholder.com/200" alt="iPhone">
+      <h3>iPhone 13 Pro Max</h3>
+      <p>R15,000 (Lay-buy: R600/month)</p>
+      <div class="sizes">
+        <label>Color:</label>
+        <select><option>Black</option><option>Blue</option><option>White</option></select>
+      </div>
+      <button class="btn">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/200" alt="Laptop">
+      <h3>HP Pavilion Laptop</h3>
+      <p>R10,000 (Lay-buy: R500/month)</p>
+      <div class="sizes">
+        <label>Specs:</label>
+        <select><option>8GB RAM</option><option>16GB RAM</option></select>
+      </div>
+      <button class="btn">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/200" alt="Sneakers">
+      <h3>Retro Sneakers</h3>
+      <p>R900</p>
+      <div class="sizes">
+        <label>Size:</label>
+        <select>
+          <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option>
+        </select>
+      </div>
+      <button class="btn">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/200" alt="T-Shirt">
+      <h3>Graphic Tee</h3>
+      <p>R350</p>
+      <div class="sizes">
+        <label>Size:</label>
+        <select>
+          <option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+        </select>
+      </div>
+      <button class="btn">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/200" alt="AirPods">
+      <h3>AirPods Pro</h3>
+      <p>R2,999</p>
+      <button class="btn">Add to Cart</button>
+    </div>
+  </section>
+  <section id="faq" style="padding: 40px;">
+    <h2>Frequently Asked Questions</h2>
+    <p><strong>How does lay-buy work?</strong><br>You pay R600/month for iPhones and R500/month for laptops while using the device.</p>
+    <p><strong>Do you offer refunds?</strong><br>Yes, within 7 days of purchase if unused.</p>
+  </section>
+  <footer class="footer" id="contact">
+    <p>&copy; 2025 Y2K Drip Store | All rights reserved</p>
+    <p>Email: support@y2kdrip.com | WhatsApp: +27 68 527 0789</p>
+  </footer>
+</body>
+</html>
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Y2K Drip Store - Shop & Admin</title>
+  <style>
+    * { box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { margin: 0; background: #f4f4f4; color: #333; }
+    header, footer { background: black; color: white; text-align: center; padding: 1em; }
+    nav { background: #111; padding: 10px; display: flex; gap: 20px; justify-content: center; }
+    nav a { color: white; text-decoration: none; padding: 8px 12px; background: #ff0055; border-radius: 5px; }
+    .hero { background: url('https://wallpaperaccess.com/full/1127436.jpg') center/cover; height: 50vh; display: flex; justify-content: center; align-items: center; color: white; font-size: 2em; text-shadow: 2px 2px black; }
+    .products, .cart, .admin { padding: 20px; }
+    .product, .cart-item { background: white; padding: 15px; margin: 10px; border-radius: 10px; box-shadow: 0 0 10px #ccc; text-align: center; }
+    button { padding: 8px 15px; background: #ff0055; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    .sizes { margin-top: 10px; }
+    select { padding: 5px; margin: 5px 0; }
+    #cart-summary { font-weight: bold; margin-top: 20px; }
+    .admin input, .admin textarea, .admin select { display: block; margin: 10px 0; padding: 8px; width: 100%; max-width: 400px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Y2K Drip Store</h1>
+    <p>Your #1 Online Streetwear Shop</p>
+  </header>
+  <nav>
+    <a href="#products">Shop</a>
+    <a href="#cart">Cart</a>
+    <a href="#admin">Admin</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="hero">🔥 New Drops Weekly 🔥</div>  <section class="products" id="products">
+    <h2>Our Products</h2>
+    <div class="product">
+      <h3>Retro Sneakers - R800</h3>
+      <img src="https://via.placeholder.com/200" alt="Shoes">
+      <div class="sizes">
+        <label>Size:</label>
+        <select id="shoeSize">
+          <option disabled selected>Select Adult Size</option>
+          <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+          <option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option>
+        </select>
+      </div>
+      <button onclick="addToCart('Retro Sneakers', 800)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <h3>Kids Sneakers - R450</h3>
+      <img src="https://via.placeholder.com/200" alt="Shoes">
+      <div class="sizes">
+        <label>Size:</label>
+        <select id="childSize">
+          <option disabled selected>Select Child Size</option>
+          <option>1</option><option>2</option>...<option>16</option>
+        </select>
+      </div>
+      <button onclick="addToCart('Kids Sneakers', 450)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <h3>Graphic T-Shirt - R300</h3>
+      <img src="https://via.placeholder.com/200" alt="Shirt">
+      <div class
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Y2KDripstore</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+  <!-- HEADER -->
+  <header class="bg-black text-white p-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-3xl font-bold">Y2KDripstore</h1>
+      <p class="text-sm">Contact: +27 68 527 0789</p>
+    </div>
+  </header>  <!-- HERO SECTION -->  <section class="bg-pink-500 text-white text-center py-16">
+    <h2 class="text-4xl font-bold mb-4">Stay Dripped. Stay Y2K.</h2>
+    <p class="text-lg">Shop the latest sneakers, clothes, iPhones, and laptops with lay buy options.</p>
+  </section>  <!-- CATEGORIES -->  <section class="max-w-7xl mx-auto py-8 px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <a href="#sneakers" class="bg-white p-6 shadow rounded-xl text-center font-bold">Sneakers</a>
+    <a href="#clothes" class="bg-white p-6 shadow rounded-xl text-center font-bold">Clothes</a>
+    <a href="#iphones" class="bg-white p-6 shadow rounded-xl text-center font-bold">iPhones</a>
+    <a href="#laptops" class="bg-white p-6 shadow rounded-xl text-center font-bold">Laptops</a>
+  </section>  <!-- SNEAKERS -->  <section id="sneakers" class="max-w-7xl mx-auto px-4 py-10">
+    <h2 class="text-2xl font-bold mb-6">Sneakers</h2>
+    <div class="bg-white p-6 shadow rounded-xl">
+      <p class="mb-2">Choose Size (Adults):</p>
+      <div class="flex flex-wrap gap-2">
+        <!-- Adult Sizes 1 to 12 -->
+        <script>
+          for (let i = 1; i <= 12; i++) {
+            document.write(`<button class='px-4 py-2 bg-gray-200 rounded hover:bg-black hover:text-white'>${i}</button>`);
+          }
+        </script>
+      </div>
+      <p class="mt-4 mb-2">Children Sizes:</p>
+      <div class="flex flex-wrap gap-2">
+        <!-- Child Sizes 1 to 16 -->
+        <script>
+          for (let i = 1; i <= 16; i++) {
+            document.write(`<button class='px-4 py-2 bg-gray-200 rounded hover:bg-black hover:text-white'>${i}</button>`);
+          }
+        </script>
+      </div>
+    </div>
+  </section>  <!-- CLOTHES -->  <section id="clothes" class="max-w-7xl mx-auto px-4 py-10">
+    <h2 class="text-2xl font-bold mb-6">Clothes</h2>
+    <div class="bg-white p-6 shadow rounded-xl">
+      <p class="mb-2">Available Sizes:</p>
+      <div class="flex gap-2">
+        <button class="px-4 py-2 bg-gray-200 rounded hover:bg-black hover:text-white">XS</button>
+        <button class="px-4 py-2 bg-gray-200 rounded hover:bg-black hover:text-white">S</button>
+        <button class="px-4 py-2 bg-gray-200 rounded hover:bg-black hover:text-white">M</button>
+        <button class="px-4 py-2 bg-gray-200 rounded hover:bg-black hover:text-white">L</button>
+        <button class="px-4 py-2 bg-gray-200 rounded hover:bg-black hover:text-white">XL</button>
+        <button class="px-4 py-2 bg-gray-200 rounded hover:bg-black hover:text-white">XXL</button>
+      </div>
+    </div>
+  </section>  <!-- IPHONES -->  <section id="iphones" class="max-w-7xl mx-auto px-4 py-10">
+    <h2 class="text-2xl font-bold mb-6">iPhones</h2>
+    <div class="bg-white p-6 shadow rounded-xl">
+      <p>Lay Buy Option: <strong>R600/month</strong> while using the phone.</p>
+    </div>
+  </section>  <!-- LAPTOPS -->  <section id="laptops" class="max-w-7xl mx-auto px-4 py-10">
+    <h2 class="text-2xl font-bold mb-6">Laptops</h2>
+    <div class="bg-white p-6 shadow rounded-xl">
+      <p>Lay Buy Option: <strong>R500/month</strong> while using the laptop.</p>
+    </div>
+  </section>  <!-- FOOTER -->  <footer class="bg-black text-white text-center py-6 mt-10">
+    <p>&copy; 2025 Y2KDripstore. All rights reserved.</p>
+  </footer>
+</body>
+    </html><!-- Tailwind-based layout example -->
+<body class="bg-white text-gray-800">
+  <!-- Navigation Bar -->
+  <nav class="bg-black text-white px-6 py-4 shadow-md">
+    <h1 class="text-2xl font-bold tracking-wide">Y2KDripstore</h1>
+  </nav>
+
+  <!-- Product Grid -->
+  <section class="bg-white py-8 px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Example Product Card -->
+    <div class="bg-[#f9f5f2] rounded-xl shadow hover:shadow-lg p-4 transition">
+      <img src="your-image.jpg" class="rounded-lg" />
+      <h2 class="text-xl font-semibold mt-2">Sneakers</h2>
+      <p class="text-gray-600">R1500</p>
+      <button class="mt-2 bg-black text-white px-4 py-2 rounded hover:bg-gray-900">
+        Add to Cart
+      </button>
+    </div>
+  </section>
+</body>
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Y2KDripstore - Payment Upload</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 20px; }
+    .container { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h2 { text-align: center; color: #222; }
+    label { display: block; margin-top: 10px; font-weight: bold; }
+    input, select, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; }
+    button { margin-top: 20px; width: 100%; background: #111; color: #fff; border: none; padding: 12px; font-size: 16px; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #333; }
+    .success { background: #d4edda; padding: 10px; border-radius: 5px; margin-top: 15px; color: #155724; display: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Submit Your Payment Proof</h2>
+    <form id="paymentForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required /><label for="phone">Phone Number</label>
+  <input type="tel" id="phone" name="phone" required />
+
+  <label for="product">Product Bought</label>
+  <input type="text" id="product" name="product" required />
+
+  <label for="size">Size (XS - XXL / 1 - 12 etc)</label>
+  <input type="text" id="size" name="size" required />
+
+  <label for="method">Payment Method</label>
+  <select id="method" name="method">
+    <option value="CashSend">CashSend</option>
+    <option value="eWallet">eWallet</option>
+    <option value="MoneyMarket">MoneyMarket</option>
+  </select>
+
+  <label for="amount">Amount Paid (R)</label>
+  <input type="number" id="amount" name="amount" required />
+
+  <label for="ref">Payment Code / Password</label>
+  <input type="text" id="ref" name="ref" required />
+
+  <label for="proof">Upload Payment Screenshot</label>
+  <input type="file" id="proof" name="proof" accept="image/*" required />
+
+  <button type="submit">Submit Order</button>
+</form>
+<div class="success" id="successMsg">Thank you! Your payment proof has been submitted successfully.</div>
+
+  </div>  <script>
+    document.getElementById("paymentForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      document.getElementById("successMsg").style.display = "block";
+      // Here, connect to backend or Google Sheets to save submission
+    });
+  </script></body>
+</html>
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Y2K Drip Store</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+    }
+    body {
+      background-color: #f3f3f3;
+      color: #333;
+    }
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #111;
+      padding: 10px 20px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 16px;
+      background: #ff0055;
+      border-radius: 4px;
+      margin: 0 5px;
+    }
+    .search-bar {
+      flex-grow: 1;
+      margin-left: 20px;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 8px;
+      border-radius: 4px;
+      border: none;
+    }
+    .auth-buttons {
+      display: flex;
+      gap: 10px;
+    }
+    .auth-buttons button {
+      padding: 6px 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .hero {
+      background-image: url('https://wallpaperaccess.com/full/1127436.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2em;
+      text-shadow: 2px 2px #000;
+      text-align: center;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+    .product {
+      background: white;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .product img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .product h3 {
+      margin: 10px 0;
+    }
+    .product p {
+      color: #777;
+    }
+    .sizes {
+      margin: 10px 0;
+    }
+    .sizes select {
+      padding: 5px;
+      border-radius: 4px;
+    }
+    .btn {
+      background: #ff0055;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .footer {
+      background: #000;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    @media screen and (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .search-bar {
+        width: 100%;
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Y2K Drip Store</h1>
+    <p>Your #1 Online Streetwear Shop</p>
+  </header>
+  <nav>
+    <div>
+      <a href="#">Home</a>
+      <a href="#products">Shop</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search products...">
+    </div>
+    <div class="auth-buttons">
+      <button>Login</button>
+      <button>Sign Up</button>
+    </div>
+  </nav>
+  <div class="hero">
+    <div>🔥 New Drops Weekly 🔥<br>Lay-buy iPhones R600/month • Laptops R500/month</div>
+  </div>
+  <section class="products" id="products">
+    <div class="product">
+      <img src="https://via.placeholder.com/200" alt="iPhone">
+      <h3>iPhone 13 Pro Max</h3>
+      <p>R15,000 (Lay-buy: R600/month)</p>
+      <div class="sizes">
+        <label>Color:</label>
+        <select><option>Black</option><option>Blue</option><option>White</option></select>
+      </div>
+      <button class="btn">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/200" alt="Laptop">
+      <h3>HP Pavilion Laptop</h3>
+      <p>R10,000 (Lay-buy: R500/month)</p>
+      <div class="sizes">
+        <label>Specs:</label>
+        <select><option>8GB RAM</option><option>16GB RAM</option></select>
+      </div>
+      <button class="btn">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/200" alt="Sneakers">
+      <h3>Retro Sneakers</h3>
+      <p>R900</p>
+      <div class="sizes">
+        <label>Size:</label>
+        <select>
+          <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option>
+        </select>
+      </div>
+      <button class="btn">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/200" alt="T-Shirt">
+      <h3>Graphic Tee</h3>
+      <p>R350</p>
+      <div class="sizes">
+        <label>Size:</label>
+        <select>
+          <option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+        </select>
+      </div>
+      <button class="btn">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/200" alt="AirPods">
+      <h3>AirPods Pro</h3>
+      <p>R2,999</p>
+      <button class="btn">Add to Cart</button>
+    </div>
+  </section>
+  <section id="faq" style="padding: 40px;">
+    <h2>Frequently Asked Questions</h2>
+    <p><strong>How does lay-buy work?</strong><br>You pay R600/month for iPhones and R500/month for laptops while using the device.</p>
+    <p><strong>Do you offer refunds?</strong><br>Yes, within 7 days of purchase if unused.</p>
+  </section>
+  <footer class="footer" id="contact">
+    <p>&copy; 2025 Y2K Drip Store | All rights reserved</p>
+    <p>Email: support@y2kdrip.com | WhatsApp: +27 68 527 0789</p>
+  </footer>
+</body>
+</html>
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Y2K Drip Store - Shop & Admin</title>
+  <style>
+    * { box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { margin: 0; background: #f4f4f4; color: #333; }
+    header, footer { background: black; color: white; text-align: center; padding: 1em; }
+    nav { background: #111; padding: 10px; display: flex; gap: 20px; justify-content: center; }
+    nav a { color: white; text-decoration: none; padding: 8px 12px; background: #ff0055; border-radius: 5px; }
+    .hero { background: url('https://wallpaperaccess.com/full/1127436.jpg') center/cover; height: 50vh; display: flex; justify-content: center; align-items: center; color: white; font-size: 2em; text-shadow: 2px 2px black; }
+    .products, .cart, .admin { padding: 20px; }
+    .product, .cart-item { background: white; padding: 15px; margin: 10px; border-radius: 10px; box-shadow: 0 0 10px #ccc; text-align: center; }
+    button { padding: 8px 15px; background: #ff0055; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    .sizes { margin-top: 10px; }
+    select { padding: 5px; margin: 5px 0; }
+    #cart-summary { font-weight: bold; margin-top: 20px; }
+    .admin input, .admin textarea, .admin select { display: block; margin: 10px 0; padding: 8px; width: 100%; max-width: 400px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Y2K Drip Store</h1>
+    <p>Your #1 Online Streetwear Shop</p>
+  </header>
+  <nav>
+    <a href="#products">Shop</a>
+    <a href="#cart">Cart</a>
+    <a href="#admin">Admin</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="hero">🔥 New Drops Weekly 🔥</div>  <section class="products" id="products">
+    <h2>Our Products</h2>
+    <div class="product">
+      <h3>Retro Sneakers - R800</h3>
+      <img src="https://via.placeholder.com/200" alt="Shoes">
+      <div class="sizes">
+        <label>Size:</label>
+        <select id="shoeSize">
+          <option disabled selected>Select Adult Size</option>
+          <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+          <option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option>
+        </select>
+      </div>
+      <button onclick="addToCart('Retro Sneakers', 800)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <h3>Kids Sneakers - R450</h3>
+      <img src="https://via.placeholder.com/200" alt="Shoes">
+      <div class="sizes">
+        <label>Size:</label>
+        <select id="childSize">
+          <option disabled selected>Select Child Size</option>
+          <option>1</option><option>2</option>...<option>16</option>
+        </select>
+      </div>
+      <button onclick="addToCart('Kids Sneakers', 450)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <h3>Graphic T-Shirt - R300</h3>
+      <img src="https://via.placeholder.com/200" alt="Shirt">
+      <div class
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Y2KDripstore</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+  <!-- HEADER -->
+  <header class="bg-black text-white p-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-3xl font-bold">Y2KDripstore</h1>
+      <p class="text-sm">Contact: +27 68 527 0789</p>
+    </div>
+  </header>  <!-- HERO SECTION -->  <section class="bg-pink-500 text-white text-center py-16">
+    <h2 class="text-4xl font-bold mb-4">Stay Dripped. Stay Y2K.</h2>
+    <p class="text-lg">Shop the latest sneakers, clothes, iPhones, and laptops with lay buy options.</p>
+  </section>  <!-- CATEGORIES -->  <section class="max-w-7xl mx-auto py-8 px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <a href="#sneakers" class="bg-white p-6 shadow rounded-xl text-center font-bold">Sneakers</a>
+    <a href="#clothes" class="bg-white p-6 shadow rounded-xl text-center font-bold">Clothes</a>
+    <a href="#iphones" class="bg-white p-6 shadow rounded-xl text-center font-bold">iPhones</a>
+    <a href="#laptops" class="bg-white p-6 shadow rounded-xl text-center font-bold">Laptops</a>
+  </section>  <!-- SNEAKERS -->  <section id="sneakers" class="max-w-7xl mx-auto px-4 py-10">
+    <h2 class="text-2xl font-bold mb-6">Sneakers</h2>
+    <div class="bg-white p-6 shadow rounded-xl">
+      <p class="mb-2">Choose Size (Adults):</p>
+      <div class="flex flex-wrap gap-2">
+        <!-- Adult Sizes 1 to 12 -->
+        <script>
+          for (let i = 1; i <= 12; i++) {
+            document.write(`<button class='px-4 py-2 bg-gray-200 rounded hover:bg-black hover:text-white'>${i}</button>`);
+          }
+        </script>
+      </div>
+      <p class="mt-4 mb-2">Children Sizes:</p>
+      <div class="flex flex-wrap gap-2">
+        <!-- Child Sizes 1 to 16 -->
+        <script>
+          for (let i = 1; i <= 16; i++) {
+            document.write(`<button class='px-4 py-2 bg-gray-200 rounded hover:bg-black hover:text-white'>${i}</button>`);
+          }
+        </script>
+      </div>
+    </div>
+  </section>  <!-- CLOTHES -->  <section id="clothes" class="max-w-7xl mx-auto px-4 py-10">
+    <h2 class="text-2xl font-bold mb-6">Clothes</h2>
+    <div class="bg-white p-6 shadow rounded-xl">
+      <p class="mb-2">Available Sizes:</p>
+      <div class="flex gap-2">
+        <button class="px-4 py-2 bg-gray-200 rounded hover:bg-black hover:text-white">XS</button>
+        <button class="px-4 py-2 bg-gray-200 rounded hover:bg-black hover:text-white">S</button>
+        <button class="px-4 py-2 bg-gray-200 rounded hover:bg-black hover:text-white">M</button>
+        <button class="px-4 py-2 bg-gray-200 rounded hover:bg-black hover:text-white">L</button>
+        <button class="px-4 py-2 bg-gray-200 rounded hover:bg-black hover:text-white">XL</button>
+        <button class="px-4 py-2 bg-gray-200 rounded hover:bg-black hover:text-white">XXL</button>
+      </div>
+    </div>
+  </section>  <!-- IPHONES -->  <section id="iphones" class="max-w-7xl mx-auto px-4 py-10">
+    <h2 class="text-2xl font-bold mb-6">iPhones</h2>
+    <div class="bg-white p-6 shadow rounded-xl">
+      <p>Lay Buy Option: <strong>R600/month</strong> while using the phone.</p>
+    </div>
+  </section>  <!-- LAPTOPS -->  <section id="laptops" class="max-w-7xl mx-auto px-4 py-10">
+    <h2 class="text-2xl font-bold mb-6">Laptops</h2>
+    <div class="bg-white p-6 shadow rounded-xl">
+      <p>Lay Buy Option: <strong>R500/month</strong> while using the laptop.</p>
+    </div>
+  </section>  <!-- FOOTER -->  <footer class="bg-black text-white text-center py-6 mt-10">
+    <p>&copy; 2025 Y2KDripstore. All rights reserved.</p>
+  </footer>
+</body>
+    </html>
